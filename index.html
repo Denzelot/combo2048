@@ -94,12 +94,37 @@
   <main>
     <!-- 01 HERO -->
     <section class="section hero" id="inicio" data-title="Inicio">
-      <div class="section__media" data-parallax="0.28">
+      <div class="section__media hero__plate" data-parallax="0.28">
         <video data-video muted loop playsinline preload="auto" autoplay
-          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_211038_46cdd5f3-1129-4d9f-9673-78e82c2d6ee0_min.webp"
-          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_211159_d51fc363-f569-45ea-94de-cdfbb0c61519.mp4"></video>
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_212547_ddc4c5ac-639c-469a-931d-3a51260e7640_min.webp"></video>
       </div>
-      <canvas class="fx-canvas" data-fx="hero"></canvas>
+
+      <!-- Layered 3D product stage: each layer moves at its own depth -->
+      <div class="hero-stage" id="heroStage" aria-hidden="true">
+        <div class="stage-rig" id="stageRig">
+          <div class="layer layer--glow" data-depth="0.15"></div>
+          <div class="layer layer--plinth" data-depth="0.4">
+            <div class="plinth">
+              <div class="plinth__top"></div>
+              <div class="plinth__front"></div>
+              <span class="plinth__shadow plinth__shadow--molido"></span>
+              <span class="plinth__shadow plinth__shadow--grano"></span>
+            </div>
+          </div>
+          <div class="layer layer--molido" data-depth="0.55">
+            <div class="bag bag--molido"><img src="assets/hero/bag-molido.webp" alt=""><i class="bag__sheen"></i></div>
+          </div>
+          <div class="layer layer--grano" data-depth="0.8">
+            <div class="bag bag--grano"><img src="assets/hero/bag-grano.webp" alt=""><i class="bag__sheen"></i></div>
+          </div>
+          <div class="layer layer--mound" data-depth="0.95" id="beanMound"></div>
+          <div class="layer layer--leaves" data-depth="1.35">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_212547_e297d3f8-2961-4e76-adf8-a2d9bf667903.png" alt="">
+          </div>
+          <div class="layer layer--float" data-depth="1.6" id="beanFloat"></div>
+        </div>
+      </div>
+      <canvas class="fx-canvas hero__fx" data-fx="hero"></canvas>
 
       <div class="section__content hero__content">
         <div class="hero__copy" data-parallax="-0.12">

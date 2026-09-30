@@ -20,6 +20,17 @@ npx serve canepa-girbau      # o: python3 -m http.server -d canepa-girbau
 - **13 imágenes** (GPT Image 2.5, 2K): hero, historia, panorámica de Oxapampa, macro de granos, producto, V60, prensa francesa, moka, contacto y 4 notas con fondo transparente (cacao, panela, avellana, frutos secos).
 - **5 vídeos en loop perfecto** (MiniMax H3, 2K, 6 s, mismo fotograma inicial y final): vapor de la taza + nubes en el hero, neblina en el origen, granos flotando con vapor, sombras de hojas sobre el producto, ramas y flores de café en contacto.
 
+### Banner en capas 3D (hero)
+El hero es un escenario de capas con profundidad real (`perspective` + `translateZ`), que se inclina con el cursor y se separa al hacer scroll:
+1. Fondo: ventana a Oxapampa sin producto (Higgsfield, vídeo en loop).
+2. Resplandor cálido.
+3. Bloque de travertino en 3D (cara superior + frontal) con textura procedural (`assets/hero/travertine.webp`).
+4. Bolsa verde «Molido» detrás y bolsa negra «En grano» delante — **recortadas de tus fotos originales** (`assets/hero/bag-*.webp`), con flotación suave, sombra que respira y un barrido de luz enmascarado a la silueta.
+5. Montaña de granos reales (sprites recortados de tu foto sobre granos, `assets/hero/bean-*.webp`) tapando la base de las bolsas.
+6. Rama de cafeto desenfocada en primer plano y granos grandes flotando a distintas profundidades.
+7. Neblina y polvo dorado (partículas) por encima.
+En móvil el escenario ocupa la mitad superior y se mueve solo (balanceo lento), sin depender del cursor.
+
 ### Fotos reales del producto (de tu cuenta Higgsfield)
 - **Referencias de etiqueta:** tus packshots subidos — bolsa etiqueta negra «Café en grano» (`3cd4d46a…`) y etiqueta verde «Café molido» (`aef4f230…`).
 - **Hero y producto regenerados con tu bolsa real como referencia**, con su loop de vídeo. En la tienda, el selector **Grano / Molido** hace un fundido entre la bolsa negra y la verde.

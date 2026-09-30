@@ -112,6 +112,61 @@
   window.addEventListener("resize", onScroll);
   onScroll();
 
+  /* ---------- Hero: layered 3D stage (mouse tilt + scroll depth) ---------- */
+  const heroStage = $("#heroStage");
+  if (heroStage) {
+    $$(".layer", heroStage).forEach(l => l.style.setProperty("--d", l.dataset.depth));
+    const BEANS = [1, 2, 3, 4, 5].map(n => `assets/hero/bean-${n}.webp`);
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    const bean = (parent, css) => {
+      const b = document.createElement("span");
+      b.className = "bean";
+      b.innerHTML = `<img alt="" src="${BEANS[(Math.random() * BEANS.length) | 0]}">`;
+      Object.assign(b.style, css);
+      parent.appendChild(b);
+      return b;
+    };
+    // mound of roasted beans on the plinth, hiding the bag bases
+    const mound = $("#beanMound");
+    for (let i = 0; i < 78; i++) {
+      const u = rnd(0, 1), x = 12 + u * 74;                 // % across the plinth
+      const hump = Math.max(Math.exp(-((u - 0.28) ** 2) / 0.02), 0.8 * Math.exp(-((u - 0.7) ** 2) / 0.018));
+      const y = 14.6 + rnd(0, 1) * (1 + hump * 4.4);        // % from bottom (plinth top ≈ 15.5%)
+      const size = rnd(2, 3.1);
+      bean(mound, { left: x + "%", bottom: y + "%", width: `calc(var(--h) * ${size / 100})`, transform: `rotate(${rnd(0, 360)}deg)`, zIndex: String(Math.round(100 - y * 3)) });
+    }
+    // oversized beans floating at different depths (the nearest ones are defocused)
+    const floatL = $("#beanFloat");
+    [[4, 26, 7, 0], [86, 34, 5.5, 0], [70, 72, 4.2, 1.5], [30, 78, 9, 4], [94, 64, 3.4, 0]].forEach(([x, y, s, blur], i) => {
+      const b = bean(floatL, { left: x + "%", top: y + "%", width: `calc(var(--h) * ${s / 100})` });
+      b.style.setProperty("--blur", blur + "px");
+      b.style.setProperty("--dur", rnd(8, 12) + "s");
+      b.style.setProperty("--delay", -rnd(0, 8) + "s");
+      b.style.setProperty("--r0", rnd(-40, 40) + "deg");
+      b.style.setProperty("--r1", rnd(-60, 60) + "deg");
+      b.style.setProperty("--dx", rnd(-14, 14) + "px");
+      b.style.setProperty("--dy", -rnd(14, 30) + "px");
+    });
+
+    // pointer → tilt (lerped); touch devices get a slow idle sway instead
+    let tx = 0, ty = 0, cx = 0, cy = 0, stageOn = true;
+    if (FINE) addEventListener("pointermove", e => { tx = e.clientX / innerWidth * 2 - 1; ty = e.clientY / innerHeight * 2 - 1; }, { passive: true });
+    new IntersectionObserver(([e]) => { stageOn = e.isIntersecting; }).observe(heroStage);
+    const hero = heroStage.closest("section");
+    const tick = t => {
+      if (stageOn && !REDUCED) {
+        if (!FINE) { tx = Math.sin(t / 3200) * 0.6; ty = Math.cos(t / 4100) * 0.4; }
+        cx = lerp(cx, tx, 0.06); cy = lerp(cy, ty, 0.06);
+        const sp = clamp(-hero.getBoundingClientRect().top / hero.offsetHeight, 0, 1);
+        heroStage.style.setProperty("--mx", cx.toFixed(4));
+        heroStage.style.setProperty("--my", cy.toFixed(4));
+        heroStage.style.setProperty("--sp", sp.toFixed(4));
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
   /* ---------- Videos: play only when on screen ---------- */
   const vio = new IntersectionObserver(entries => entries.forEach(e => {
     const v = e.target;
