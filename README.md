@@ -20,6 +20,11 @@ npx serve canepa-girbau      # o: python3 -m http.server -d canepa-girbau
 - **13 imágenes** (GPT Image 2.5, 2K): hero, historia, panorámica de Oxapampa, macro de granos, producto, V60, prensa francesa, moka, contacto y 4 notas con fondo transparente (cacao, panela, avellana, frutos secos).
 - **5 vídeos en loop perfecto** (MiniMax H3, 2K, 6 s, mismo fotograma inicial y final): vapor de la taza + nubes en el hero, neblina en el origen, granos flotando con vapor, sombras de hojas sobre el producto, ramas y flores de café en contacto.
 
+### Fotos reales del producto (de tu cuenta Higgsfield)
+- **Referencias de etiqueta:** tus packshots subidos — bolsa etiqueta negra «Café en grano» (`3cd4d46a…`) y etiqueta verde «Café molido» (`aef4f230…`).
+- **Hero y producto regenerados con tu bolsa real como referencia**, con su loop de vídeo. En la tienda, el selector **Grano / Molido** hace un fundido entre la bolsa negra y la verde.
+- **Galería «Ver fotos»** (barra glass en la sección Tienda → visor a pantalla completa con flechas, teclado y swipe): tus 2 packshots + 5 fotos editoriales (sobre granos, en Oxapampa, mármol, molido sobre madera, bolsa levitando).
+
 ## Sistema glass
 - `.btn` — vidrio con `backdrop-filter: blur(30px)`, reflejo que sigue al puntero y barrido líquido al hover; variantes `--dark`, `--gold` (CTA con «respiración» dorada) y `--ghost-dark`.
 - `.glass` / `.glass--dark` — barras y tarjetas (header al hacer scroll, barra de datos del origen, mapa, ficha técnica, indicador lateral, tarjeta de contacto).

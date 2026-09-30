@@ -115,7 +115,8 @@
   /* ---------- Videos: play only when on screen ---------- */
   const vio = new IntersectionObserver(entries => entries.forEach(e => {
     const v = e.target;
-    if (e.isIntersecting && !REDUCED) v.play().catch(() => {});
+    const idle = v.classList.contains("alt") && !v.closest(".is-molido");
+    if (e.isIntersecting && !REDUCED && !idle) v.play().catch(() => {});
     else v.pause();
   }), { threshold: 0.05 });
   $$("video[data-video]").forEach(v => {
@@ -378,6 +379,11 @@
   $$("button", seg).forEach(b => b.addEventListener("click", () => {
     $$("button", seg).forEach(o => o.setAttribute("aria-pressed", o === b));
     state.grind = b.dataset.grind; moveThumb();
+    const molido = state.grind === "Molido", sec = $("#tienda");
+    sec.classList.toggle("is-molido", molido);
+    const alt = $(".section__media video.alt", sec);
+    if (alt && molido && !REDUCED) alt.play().catch(() => {});
+    if (alt && !molido) alt.pause();
   }));
   addEventListener("resize", moveThumb); moveThumb();
   document.fonts?.ready.then(moveThumb);
@@ -457,6 +463,50 @@
   $$("#sliders .slider").forEach(s => {
     s.addEventListener("pointerenter", () => verts[+s.dataset.axis].classList.add("is-hot"));
     s.addEventListener("pointerleave", () => verts[+s.dataset.axis].classList.remove("is-hot"));
+  });
+
+  /* ---------- Product photo gallery (real product photography) ---------- */
+  const views = $$("#views .view");
+  const lb = $("#lightbox"), lbImgs = $$(".lightbox__img", lb), lbThumbs = $(".lightbox__thumbs", lb);
+  let lbIdx = 0, lbLayer = 0;
+  views.forEach((v, i) => {
+    const t = document.createElement("button");
+    t.setAttribute("aria-label", v.dataset.caption);
+    t.innerHTML = `<img alt="" src="${$("img", v).src}">`;
+    t.addEventListener("click", () => showView(i));
+    lbThumbs.appendChild(t);
+    v.addEventListener("click", () => openGallery(i));
+  });
+  function showView(i) {
+    lbIdx = (i + views.length) % views.length;
+    const v = views[lbIdx], next = lbImgs[lbLayer ^= 1], prev = lbImgs[lbLayer ^ 1];
+    next.onload = () => { next.classList.add("is-on"); prev.classList.remove("is-on"); };
+    next.src = v.dataset.full;
+    if (next.complete && next.naturalWidth) next.onload();
+    next.alt = v.dataset.caption;
+    $(".lightbox__count", lb).textContent = `${String(lbIdx + 1).padStart(2, "0")} / ${String(views.length).padStart(2, "0")}`;
+    $("b", lb).textContent = v.dataset.caption;
+    $("small", lb).textContent = v.dataset.sub;
+    $$("button", lbThumbs).forEach((b, k) => b.classList.toggle("is-on", k === lbIdx));
+  }
+  function openGallery(i) { lb.classList.add("is-open"); lenis?.stop(); showView(i); $("#lightboxClose").focus(); }
+  const closeGallery = () => { lb.classList.remove("is-open"); lenis?.start(); };
+  $("#lightboxClose").addEventListener("click", closeGallery);
+  $(".lightbox__nav--prev", lb).addEventListener("click", () => showView(lbIdx - 1));
+  $(".lightbox__nav--next", lb).addEventListener("click", () => showView(lbIdx + 1));
+  lb.addEventListener("click", e => { if (e.target === lb || e.target.classList.contains("lightbox__stage")) closeGallery(); });
+  addEventListener("keydown", e => {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") closeGallery();
+    if (e.key === "ArrowRight") showView(lbIdx + 1);
+    if (e.key === "ArrowLeft") showView(lbIdx - 1);
+  });
+  let sx = null;
+  lb.addEventListener("touchstart", e => { sx = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener("touchend", e => {
+    if (sx == null) return;
+    const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 50) showView(lbIdx + (dx < 0 ? 1 : -1));
   });
 
   /* ---------- Ritual modal ---------- */
