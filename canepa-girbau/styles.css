@@ -682,6 +682,63 @@ body.cursor-hover .cursor-dot {
 .origin-badge svg.rot text { font-size: 8.4px; letter-spacing: 0.32em; fill: var(--gold); }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Product photo rail (user's real product photography) */
+.product-views {
+  position: absolute; z-index: 4; right: calc(var(--gutter) + 40px); bottom: 9%;
+  display: flex; align-items: center; gap: 8px; padding: 8px 8px 8px 16px; border-radius: 22px;
+}
+.product-views__label { font-size: 10px; font-weight: 600; letter-spacing: 0.26em; line-height: 1.5; text-transform: uppercase; color: var(--gold); margin-right: 6px; }
+.view {
+  position: relative; width: 50px; height: 64px; border-radius: 12px; overflow: hidden; flex: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7), 0 8px 18px -10px rgba(58, 38, 25, 0.6);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s;
+}
+.view img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease); }
+.view::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(255,255,255,.35), transparent 45%); opacity: 0; transition: opacity .5s; }
+.view:hover { transform: translateY(-4px); box-shadow: 0 0 0 1px var(--gold), 0 14px 26px -12px rgba(150, 110, 50, 0.7); }
+.view:hover img { transform: scale(1.12); }
+.view:hover::after { opacity: 1; }
+
+/* Product background: crossfade grano ↔ molido */
+.product .section__media video { transition: opacity 1.2s var(--ease); }
+.product .section__media video.alt { opacity: 0; }
+.product.is-molido .section__media video.alt { opacity: 1; }
+.product.is-molido .section__media video:not(.alt) { opacity: 0; }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; z-index: 160; display: grid; place-items: center;
+  padding: 64px 90px 176px;
+  background: radial-gradient(ellipse at 50% 40%, rgba(58, 38, 25, 0.55), rgba(20, 12, 7, 0.88));
+  -webkit-backdrop-filter: blur(22px) saturate(140%); backdrop-filter: blur(22px) saturate(140%);
+  opacity: 0; visibility: hidden; transition: opacity 0.7s var(--ease), visibility 0.7s;
+}
+.lightbox.is-open { opacity: 1; visibility: visible; }
+.lightbox__stage { position: relative; margin: 0; width: min(1100px, 100%); height: 100%; }
+.lightbox__img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+  opacity: 0; transform: scale(0.97); filter: drop-shadow(0 40px 60px rgba(0,0,0,.55));
+  transition: opacity 0.9s var(--ease), transform 1.2s var(--ease);
+}
+.lightbox__img.is-on { opacity: 1; transform: none; }
+.lightbox__cap {
+  position: absolute; left: 50%; bottom: -18px; transform: translate(-50%, 100%);
+  display: flex; align-items: baseline; gap: 14px; white-space: nowrap;
+  padding: 12px 22px; border-radius: 999px; color: #f6ecdf;
+}
+.lightbox__cap b { font-family: var(--serif); font-weight: 400; font-size: 20px; }
+.lightbox__cap small { font-size: 11.5px; opacity: 0.7; }
+.lightbox__count { font-size: 10px; letter-spacing: 0.26em; color: var(--gold-soft); }
+.lightbox__nav { position: absolute; top: 50%; width: 54px; height: 54px; margin-top: -27px; border-radius: 50%; display: grid; place-items: center; color: #f6ecdf; transition: transform .5s var(--ease), background .4s; }
+.lightbox__nav svg { width: 18px; height: 18px; }
+.lightbox__nav--prev { left: 24px; } .lightbox__nav--prev svg { transform: rotate(180deg); }
+.lightbox__nav--next { right: 24px; }
+.lightbox__nav:hover { background: rgba(255, 236, 210, 0.2); transform: scale(1.06); }
+.lightbox__thumbs { position: absolute; left: 0; right: 0; bottom: 22px; display: flex; justify-content: center; gap: 8px; }
+.lightbox__thumbs button { width: 40px; height: 52px; border-radius: 10px; overflow: hidden; opacity: 0.45; transition: opacity .4s, transform .5s var(--ease); box-shadow: 0 0 0 1px rgba(255,236,210,.3); }
+.lightbox__thumbs button.is-on { opacity: 1; transform: translateY(-4px); box-shadow: 0 0 0 1px var(--gold-soft); }
+.lightbox__thumbs img { width: 100%; height: 100%; object-fit: cover; }
+
 /* ---------- 06 PERFIL DE TAZA ---------- */
 .profile { background: var(--ivory); padding: clamp(90px, 12vw, 150px) 0; }
 .profile__grid { display: grid; grid-template-columns: 1fr 1.25fr 0.95fr; gap: clamp(28px, 4vw, 70px); align-items: center; }
@@ -903,6 +960,13 @@ body.cursor-hover .cursor-dot {
   .history .section__media, .contact .section__media, .sensory .section__media { overflow: hidden; }
   .product .section__media::after { background: linear-gradient(0deg, var(--beige) 0%, rgba(234, 223, 206, 0.2) 40%, transparent 60%); }
   .origin-badge { top: calc(var(--header-h) + 10px); right: 16px; width: 96px; height: 96px; font-size: 8px; }
+  .product-views { position: relative; right: auto; bottom: auto; margin: 26px var(--gutter) 0; overflow-x: auto; scrollbar-width: none; }
+  .product-views::-webkit-scrollbar { display: none; }
+  .lightbox { padding: 64px 12px 232px; }
+  .lightbox__nav { top: auto; bottom: 150px; margin: 0; width: 46px; height: 46px; }
+  .lightbox__nav--prev { left: 16px; } .lightbox__nav--next { right: 16px; }
+  .lightbox__cap { flex-direction: column; align-items: center; gap: 2px; border-radius: 20px; padding: 10px 18px; white-space: normal; text-align: center; width: max-content; max-width: calc(100vw - 140px); }
+  .lightbox__cap b { font-size: 17px; }
   .packs { gap: 8px; }
   .pack { padding: 12px 10px 10px; }
   .pack em { font-size: 17px; }
