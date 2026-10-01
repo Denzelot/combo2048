@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Canepa & Girbau — Café de origen desde 1955</title>
+  <meta name="description" content="Café de especialidad cultivado en las montañas de Oxapampa, Perú, y tostado artesanalmente desde 1955.">
+  <meta name="theme-color" content="#f5eee4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-loading">
+
+  <!-- ===== Global SVG defs / symbols ===== -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-mark" viewBox="0 0 100 100">
+        <circle class="stroke" cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path class="stroke" d="M58 30c-4-4-10-6-16-4-10 3-15 13-12 24 3 10 13 15 23 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <path class="stroke" d="M62 44c-3-3-8-4-12-2-7 3-9 11-6 17 3 6 10 8 16 5v-9h-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="fill" d="M50 12c3 4 3 8 0 11-3-3-3-7 0-11z" fill="currentColor"/>
+      </symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-5-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2.2l2.1 10.2a1.6 1.6 0 0 0 1.6 1.3h8.3a1.6 1.6 0 0 0 1.6-1.2L20.5 8H6.1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9.5" cy="19.5" r="1.3" fill="currentColor"/><circle cx="17" cy="19.5" r="1.3" fill="currentColor"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 8h16M4 16h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+      <symbol id="i-play" viewBox="0 0 10 12"><path d="M0 0v12l10-6z" fill="currentColor"/></symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M5 5l14 14M19 5 5 19" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+      <symbol id="i-flower" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="2"/><path d="M12 10c-2-3-2-6 0-7 2 1 2 4 0 7zM12 14c2 3 2 6 0 7-2-1-2-4 0-7zM10 12c-3 2-6 2-7 0 1-2 4-2 7 0zM14 12c3-2 6-2 7 0-1 2-4 2-7 0z"/></g></symbol>
+      <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
+      <symbol id="i-mountain" viewBox="0 0 32 24"><path d="M1 22 11 7l5 7 4-5 11 13z M8 12l3-5 3 4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+      <symbol id="i-bean" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.2"><ellipse cx="12" cy="12" rx="6" ry="8.5" transform="rotate(30 12 12)"/><path d="M8.5 5.5c3 3 1 6 3.5 8.5s1 4 3.5 5"/></g></symbol>
+      <symbol id="i-cloud" viewBox="0 0 32 24"><path d="M8 18h17a5 5 0 0 0 0-10 7 7 0 0 0-13-1 5.5 5.5 0 0 0-4 11z M3 22h26" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 19C5 9 11 4 20 4c0 9-5 15-15 15zM5 19l8-8" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-badge" viewBox="0 0 24 24"><path d="M12 3l2.4 1.8 3-.1.9 2.8 2.4 1.8-.9 2.8.9 2.8-2.4 1.8-.9 2.8-3-.1L12 21l-2.4-1.8-3 .1-.9-2.8L3.3 14.7l.9-2.8-.9-2.8 2.4-1.8.9-2.8 3 .1z" fill="none" stroke="currentColor" stroke-width="1.1"/><path d="m9 12 2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v6c0 4 3 7 7 9 4-2 7-5 7-9V6z M9 12l2 2 4-4" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+      <symbol id="i-truck" viewBox="0 0 24 24"><path d="M2 6h12v10H2zM14 10h4l3 3v3h-7M6 19a1.5 1.5 0 1 0 0-.1M17 19a1.5 1.5 0 1 0 0-.1" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+      <symbol id="i-breath" viewBox="0 0 32 24"><path d="M2 8c6 0 6-5 11-5M2 14h18a4 4 0 1 0-4-4M2 20c8 0 10 1 14 1a3 3 0 1 0-3-3" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-wa" viewBox="0 0 24 24"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .9c-1-.5-2.3-1.8-2.8-2.8l.9-1-1-2z" fill="currentColor"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M3 6h18v12H3zM3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="9.5" r="2.4" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
+      <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.2"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></symbol>
+      <symbol id="i-fb" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.2"/><path d="M13 20v-7h2.3l.4-2.7H13V8.8c0-.8.3-1.3 1.4-1.3h1.4V5.1a17 17 0 0 0-2-.1c-2 0-3.4 1.2-3.4 3.4v1.9H8v2.7h2.4v7" fill="currentColor"/></symbol>
+      <symbol id="i-nose" viewBox="0 0 24 24"><path d="M11 3c0 5-4 9-4 12a3 3 0 0 0 3 3h1M14 18h1a3 3 0 0 0 0-6M4 8c2-1 3 0 4 1M20 8c-2-1-3 0-4 1" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+      <symbol id="i-body" viewBox="0 0 24 24"><path d="M6 4h12l-1.5 14a2 2 0 0 1-2 2h-5a2 2 0 0 1-2-2zM6.6 10h10.8" fill="none" stroke="currentColor" stroke-width="1.2"/></symbol>
+      <symbol id="i-sweet" viewBox="0 0 24 24"><path d="M4 9l8-5 8 5-8 11z M4 9h16M9 9l3 11 3-11" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></symbol>
+      <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M8 3c-1 1.5 1 2 0 3.5M12 3c-1 1.5 1 2 0 3.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ===== Preloader ===== -->
+  <div class="preloader" aria-hidden="true">
+    <div>
+      <svg class="preloader__mark"><use href="#i-mark"/></svg>
+      <div class="preloader__label">Desde 1955</div>
+    </div>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-halo" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ===== Header (transparent → glass bar) ===== -->
+  <header class="header" id="header">
+    <a class="brand" href="#inicio" aria-label="Canepa & Girbau, inicio">
+      <svg class="brand__mark"><use href="#i-mark"/></svg>
+      <span class="brand__name">CANEPA &amp; GIRBAU<small>DESDE 1955</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#inicio" class="is-active">Inicio</a>
+      <a href="#historia">Nuestra historia</a>
+      <a href="#origen">El café</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#tienda">Tienda</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header__actions">
+      <button class="icon-btn" aria-label="Buscar"><svg><use href="#i-search"/></svg></button>
+      <a class="icon-btn" href="#tienda" aria-label="Carrito" id="cartBtn">
+        <svg><use href="#i-cart"/></svg><span class="cart-count" id="cartCount">0</span>
+      </a>
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </header>
+
+  <!-- ===== Side scroll indicator ===== -->
+  <nav class="scroll-rail glass" id="rail" aria-label="Secciones">
+    <div class="scroll-rail__track"><div class="scroll-rail__fill" id="railFill"></div></div>
+  </nav>
+
+  <main>
+    <!-- 01 HERO -->
+    <section class="section hero" id="inicio" data-title="Inicio">
+      <div class="section__media hero__plate" data-parallax="0.28">
+        <video data-video muted loop playsinline preload="auto" autoplay
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_212547_ddc4c5ac-639c-469a-931d-3a51260e7640_min.webp"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_212657_4678966d-9517-4aee-8d83-94fd416f758c.mp4"></video>
+      </div>
+
+      <!-- Layered 3D product stage: each layer moves at its own depth -->
+      <div class="hero-stage" id="heroStage" aria-hidden="true">
+        <div class="stage-rig" id="stageRig">
+          <div class="layer layer--glow" data-depth="0.15"></div>
+          <div class="layer layer--plinth" data-depth="0.4">
+            <div class="plinth">
+              <div class="plinth__top"></div>
+              <div class="plinth__front"></div>
+              <span class="plinth__shadow plinth__shadow--molido"></span>
+              <span class="plinth__shadow plinth__shadow--grano"></span>
+            </div>
+          </div>
+          <div class="layer layer--molido" data-depth="0.55">
+            <div class="bag bag--molido"><img src="assets/hero/bag-molido.webp" alt=""><i class="bag__sheen"></i></div>
+          </div>
+          <div class="layer layer--grano" data-depth="0.8">
+            <div class="bag bag--grano"><img src="assets/hero/bag-grano.webp" alt=""><i class="bag__sheen"></i></div>
+          </div>
+          <div class="layer layer--mound" data-depth="0.95" id="beanMound"></div>
+          <div class="layer layer--leaves" data-depth="1.35">
+            <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_212547_e297d3f8-2961-4e76-adf8-a2d9bf667903.png" alt="">
+          </div>
+          <div class="layer layer--float" data-depth="1.6" id="beanFloat"></div>
+        </div>
+      </div>
+      <canvas class="fx-canvas hero__fx" data-fx="hero"></canvas>
+
+      <div class="section__content hero__content">
+        <div class="hero__copy" data-parallax="-0.12">
+          <span class="kicker" data-reveal>Oxapampa, Perú</span>
+          <h1 class="display" data-reveal-lines>
+            <span class="line"><span>Desde 1955,</span></span>
+            <span class="line"><span><em>una taza</em></span></span>
+            <span class="line"><span><em>con historia.</em></span></span>
+          </h1>
+          <p class="lede" data-reveal data-delay="2">Café de especialidad cultivado en las montañas de Oxapampa y tostado artesanalmente para revelar el carácter único de cada grano.</p>
+          <div class="hero__actions" data-reveal data-delay="3">
+            <a class="btn btn--dark" href="#tienda" data-magnetic>Comprar café <svg class="arrow"><use href="#i-arrow"/></svg></a>
+            <button class="btn" data-open-ritual data-magnetic><span class="play-dot"><svg><use href="#i-play"/></svg></span>Ver el ritual</button>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero__spec glass" data-parallax="0.18" data-reveal data-delay="4" aria-label="Ficha del café">
+        <ul class="spec-list">
+          <li><svg><use href="#i-flower"/></svg>Caturra + Bourbon</li>
+          <li><svg><use href="#i-drop"/></svg>Lavado</li>
+          <li><svg><use href="#i-mountain"/></svg>1,800 m s. n. m.</li>
+          <li><svg><use href="#i-badge"/></svg>85 pts</li>
+        </ul>
+      </aside>
+
+      <div class="hero__meta"><span id="secIndex">01</span> / 08 <span class="bar"><i id="secBar"></i></span></div>
+      <a class="scroll-cue" href="#historia" aria-label="Bajar"><i></i>Scroll</a>
+    </section>
+
+    <!-- 02 HISTORIA -->
+    <section class="section history" id="historia" data-title="Historia">
+      <div class="section__media" data-parallax="0.18">
+        <img loading="lazy" alt="Fotografía familiar de 1955 entre hojas de cafeto en Oxapampa"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_c9e1dea0-7949-44a5-81e0-ff85ff12917b.png">
+      </div>
+      <div class="section__content">
+        <div class="history__copy">
+          <span class="kicker" data-reveal>Nuestra historia</span>
+          <h2 class="h2" data-reveal-lines>
+            <span class="line"><span>Un apellido</span></span>
+            <span class="line"><span>que sembró <em>raíces.</em></span></span>
+          </h2>
+          <p class="lede" data-reveal data-delay="1">Canepa &amp; Girbau nace en 1955 del trabajo de una familia que encontró en Oxapampa el lugar perfecto para cultivar uno de los mejores cafés del Perú. Tres generaciones después seguimos con la misma filosofía: menos volumen, más calidad.</p>
+          <a class="btn btn--sm" href="#origen" data-reveal data-delay="2" data-magnetic>Conoce nuestra historia <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <blockquote class="quote glass" data-parallax="-0.1" data-reveal data-delay="3">“El mismo origen, la misma pasión.”<small>Familia Canepa &amp; Girbau</small></blockquote>
+    </section>
+
+    <!-- 03 ORIGEN -->
+    <section class="section origin" id="origen" data-title="Origen" data-dark>
+      <div class="section__media" data-parallax="0.22">
+        <video data-video muted loop playsinline preload="metadata"
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_9e5b3bfe-c398-4de3-9435-e48cfcb6443d_min.webp"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205354_50790ab3-1d02-4886-841a-fe06917f4f64.mp4"></video>
+      </div>
+      <canvas class="fx-canvas" data-fx="mist"></canvas>
+      <div class="section__content">
+        <div class="origin__copy">
+          <span class="kicker" data-reveal>Nuestro origen</span>
+          <h2 class="h2" data-reveal-lines>
+            <span class="line"><span>Oxapampa,</span></span>
+            <span class="line"><span><em>Perú.</em></span></span>
+          </h2>
+          <p class="lede" data-reveal data-delay="1">Montañas, bosque de neblina y suelos fértiles: el lugar donde nace un café de carácter único.</p>
+          <a class="btn btn--sm btn--ghost-dark" href="#experiencia" data-reveal data-delay="2" data-magnetic>Explora nuestro origen <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="map-card glass glass--dark" data-parallax="-0.15" data-reveal data-delay="2">
+        <svg viewBox="0 0 170 225" id="peruMap" aria-label="Mapa del Perú con Oxapampa marcado"></svg>
+        <h4>OXAPAMPA</h4>
+        <p>PASCO · PERÚ</p>
+      </div>
+      <div class="stats-bar glass glass--dark" data-reveal data-delay="3">
+        <div class="stat"><svg><use href="#i-mountain"/></svg><div><b>1,800</b><span>m s. n. m.</span></div></div>
+        <div class="stat"><svg><use href="#i-bean"/></svg><div><b>Caturra + Bourbon</b><span>Variedades</span></div></div>
+        <div class="stat"><svg><use href="#i-drop"/></svg><div><b>Lavado</b><span>Proceso</span></div></div>
+        <div class="stat"><svg><use href="#i-cloud"/></svg><div><b>Bosque</b><span>de neblina</span></div></div>
+      </div>
+    </section>
+
+    <!-- 04 EXPERIENCIA SENSORIAL -->
+    <section class="section sensory" id="experiencia" data-title="Experiencia" data-dark>
+      <div class="section__media" data-parallax="0.15">
+        <video data-video muted loop playsinline preload="metadata"
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_2ac05fc4-97fa-45cb-ab52-e36eb1bfa5a4_min.webp"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205339_fee22655-6280-488f-a55e-2def2e4631c3.mp4"></video>
+      </div>
+      <canvas class="fx-canvas" data-fx="sensory"></canvas>
+      <div class="section__content">
+        <div class="sensory__copy">
+          <span class="kicker" data-reveal>Experiencia sensorial</span>
+          <h2 class="h2" data-reveal-lines>
+            <span class="line"><span>¿A qué huele</span></span>
+            <span class="line"><span><em>esta taza?</em></span></span>
+          </h2>
+          <p class="lede" data-reveal data-delay="1">Cada grano guarda notas que despiertan los sentidos. Acerca tu cursor a las burbujas y descubre su perfil aromático.</p>
+          <button class="aroma-btn" id="aromaBtn" data-reveal data-delay="2" aria-pressed="false">
+            <svg class="ring" viewBox="0 0 164 164" aria-hidden="true"><circle class="bg" cx="82" cy="82" r="78"/><circle class="fg" cx="82" cy="82" r="78"/></svg>
+            <span><svg class="breath-ico"><use href="#i-breath"/></svg><span class="aroma-label">Respira<br>el aroma</span></span>
+          </button>
+          <p class="sensory__hint" data-reveal data-delay="3"><i></i>Activa sonido y partículas</p>
+        </div>
+      </div>
+      <div class="bubble-stage" id="bubbleStage" aria-label="Notas de cata">
+        <button class="note-bubble" style="--s:190px" data-home="0.30,0.26" data-home-m="0.28,0.18">
+          <img alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_0f8bcde6-bcc4-4a14-be5e-9692f692eadd.png">
+          <span class="label">Cacao</span>
+          <span class="desc">Chocolate amargo y cacao tostado en el primer sorbo.</span>
+        </button>
+        <button class="note-bubble" style="--s:168px" data-home="0.72,0.22" data-home-m="0.74,0.34">
+          <img alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_4b8be54f-8438-4eb1-b871-397673ede523.png">
+          <span class="label">Panela</span>
+          <span class="desc">Dulzor de caña andina, suave y acaramelado.</span>
+        </button>
+        <button class="note-bubble" style="--s:178px" data-home="0.40,0.70" data-home-m="0.27,0.62">
+          <img alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_6be59b38-52d2-4364-8d43-a703b89ef17a.png">
+          <span class="label">Avellana</span>
+          <span class="desc">Tostado cálido y cremoso que redondea el cuerpo.</span>
+        </button>
+        <button class="note-bubble" style="--s:160px" data-home="0.80,0.66" data-home-m="0.73,0.82">
+          <img alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205313_fdd9c1de-80e9-4879-af5d-f934a2eecd10.png">
+          <span class="label">Frutos secos</span>
+          <span class="desc">Almendra y nuez en un final largo y limpio.</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 05 PRODUCTO -->
+    <section class="section product" id="tienda" data-title="Tienda">
+      <div class="section__media" data-parallax="0.12">
+        <video data-video muted loop playsinline preload="metadata"
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_211037_dcedb46a-0fa5-4777-aef1-7eb9c1bb0e41_min.webp"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_211158_5565aa7c-469a-4ee7-975a-af07df9aaafe.mp4"></video>
+        <video class="alt" data-video muted loop playsinline preload="none"
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_211037_d808f813-5d99-4bde-8628-ca6aa88636b5_min.webp"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_211158_2494cdaf-00c5-4134-87da-eef976af1d62.mp4"></video>
+      </div>
+      <canvas class="fx-canvas" data-fx="dust"></canvas>
+      <div class="section__content">
+        <div class="product__panel">
+          <span class="kicker" data-reveal>Nuestro café</span>
+          <h2 class="product__title" data-reveal>Café Canepa &amp; Girbau <small>250 g</small></h2>
+          <p class="product__sub" data-reveal data-delay="1">Tueste medio · Grano o molido</p>
+
+          <div class="segmented glass" id="grind" role="group" aria-label="Presentación" data-reveal data-delay="1">
+            <span class="thumb"></span>
+            <button aria-pressed="true" data-grind="Grano">Grano</button>
+            <button aria-pressed="false" data-grind="Molido">Molido</button>
+          </div>
+
+          <div class="packs" id="packs" role="group" aria-label="Formato" data-reveal data-delay="2">
+            <button class="pack" aria-pressed="false" data-price="33.90" data-ship="0"><b>1 bolsa</b><span>250 g</span><em>S/ 33.90</em></button>
+            <button class="pack" aria-pressed="true" data-price="61.90" data-ship="1"><span class="tag">Favorito</span><b>Pack 2</b><span>2 × 250 g</span><em>S/ 61.90</em></button>
+            <button class="pack" aria-pressed="false" data-price="119.00" data-ship="1"><b>Pack 4</b><span>Familia · oficina</span><em>S/ 119.00</em></button>
+          </div>
+
+          <div class="price-row" data-reveal data-delay="2">
+            <div class="price" aria-live="polite"><small>S/</small><span id="price">61.90</span></div>
+            <div class="shipping" id="shipping">Envío incluido<br>a todo el Perú</div>
+          </div>
+
+          <div class="buy-row" data-reveal data-delay="3">
+            <div class="qty glass" aria-label="Cantidad">
+              <button id="qtyMinus" aria-label="Quitar uno">−</button>
+              <output id="qty">1</output>
+              <button id="qtyPlus" aria-label="Agregar uno">+</button>
+            </div>
+            <button class="btn btn--gold" id="addToCart" data-magnetic><svg class="ico"><use href="#i-cart"/></svg><span>Agregar al carrito</span></button>
+          </div>
+
+          <div class="trust" data-reveal data-delay="4">
+            <span><svg><use href="#i-shield"/></svg>Pago seguro</span>
+            <span><svg><use href="#i-truck"/></svg>Envíos a todo el Perú</span>
+            <span><svg><use href="#i-leaf"/></svg>Edición permanente</span>
+          </div>
+        </div>
+      </div>
+      <div class="origin-badge glass" data-parallax="-0.2" aria-hidden="true">
+        <svg class="rot" viewBox="0 0 100 100"><defs><path id="circ" d="M50 50m-40 0a40 40 0 1 1 80 0a40 40 0 1 1-80 0"/></defs><text><textPath href="#circ">OXAPAMPA · PERÚ · SINGLE ORIGIN · </textPath></text></svg>
+        <span>Café<br>de origen</span>
+      </div>
+      <div class="product-views glass" id="views" data-reveal data-delay="3">
+        <span class="product-views__label">Ver<br>fotos</span>
+        <button class="view" data-full="assets/photos/grano-travertino.webp" data-caption="En grano, sobre travertino" data-sub="Luz de mañana, Oxapampa" aria-label="Ver foto: Café en grano"><img loading="lazy" alt="" src="assets/photos/grano-travertino.webp"></button>
+        <button class="view" data-full="assets/photos/molido-travertino.webp" data-caption="Molido, sobre travertino" data-sub="Luz de mañana, Oxapampa" aria-label="Ver foto: Café molido"><img loading="lazy" alt="" src="assets/photos/molido-travertino.webp"></button>
+        <button class="view" data-full="https://d2ol7oe51mr4n9.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/3cd4d46a-aab8-4675-9dd1-51400ce55df1.png" data-caption="Café en grano · Whole bean" data-sub="Etiqueta negra, 250 gr" aria-label="Ver foto: Café en grano · Whole bean"><img loading="lazy" alt="" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/3cd4d46a-aab8-4675-9dd1-51400ce55df1.png"></button>
+        <button class="view" data-full="https://d2ol7oe51mr4n9.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/aef4f230-b3d6-4401-a2e1-d4cf0f1d868f_resize.jpg" data-caption="Café molido · Ground coffee" data-sub="Etiqueta verde, 250 gr" aria-label="Ver foto: Café molido · Ground coffee"><img loading="lazy" alt="" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/aef4f230-b3d6-4401-a2e1-d4cf0f1d868f_resize.jpg"></button>
+        <button class="view" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_180452_c081cd02-0bf0-4ac7-8bff-8a8959d18e70.png" data-caption="Sobre grano recién tostado" data-sub="Tueste medio, Oxapampa" aria-label="Ver foto: Sobre grano recién tostado"><img loading="lazy" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_180452_c081cd02-0bf0-4ac7-8bff-8a8959d18e70_min.webp"></button>
+        <button class="view" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_192045_97c7c3de-a4c8-4872-b18f-18456984fc49.png" data-caption="En su origen" data-sub="Bosque de neblina, 1,800 m s. n. m." aria-label="Ver foto: En su origen"><img loading="lazy" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_192045_97c7c3de-a4c8-4872-b18f-18456984fc49_min.webp"></button>
+        <button class="view" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_191804_572d99f8-b7e7-4218-83f1-96a1fdbb7ea3.png" data-caption="Ritual de tarde" data-sub="Mármol, luz lateral y silencio" aria-label="Ver foto: Ritual de tarde"><img loading="lazy" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_191804_572d99f8-b7e7-4218-83f1-96a1fdbb7ea3_min.webp"></button>
+        <button class="view" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_174440_1894409f-892d-4fbb-b066-89e7c40105c5.png" data-caption="Molido para tu cafetera" data-sub="Listo para V60, prensa o italiana" aria-label="Ver foto: Molido para tu cafetera"><img loading="lazy" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_174440_1894409f-892d-4fbb-b066-89e7c40105c5_min.webp"></button>
+        <button class="view" data-full="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_192652_3d820689-b420-419e-8bce-5c29f13ad883.png" data-caption="Suspendido en el aroma" data-sub="Edición permanente" aria-label="Ver foto: Suspendido en el aroma"><img loading="lazy" alt="" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260925_192652_3d820689-b420-419e-8bce-5c29f13ad883_min.webp"></button>
+      </div>
+    </section>
+
+    <!-- 06 PERFIL DE TAZA -->
+    <section class="section profile" id="perfil" data-title="Perfil">
+      <div class="section__content profile__grid">
+        <div class="profile__intro">
+          <span class="kicker" data-reveal>Perfil de taza</span>
+          <h2 class="h2" data-reveal-lines>
+            <span class="line"><span>Equilibrio</span></span>
+            <span class="line"><span>en cada <em>sorbo.</em></span></span>
+          </h2>
+          <p class="lede" data-reveal data-delay="1">Un café de cuerpo sedoso, acidez media y notas dulces que se sienten desde el aroma hasta el final.</p>
+        </div>
+        <svg class="radar" id="radar" viewBox="-60 -40 520 500" role="img" aria-label="Aroma 4, Acidez 3, Cuerpo 4, Dulzor 4, Final 4, sobre 5">
+          <defs>
+            <radialGradient id="radarFill" cx="50%" cy="50%" r="60%">
+              <stop offset="0" stop-color="#d9bf8c" stop-opacity="0.55"/>
+              <stop offset="1" stop-color="#8a6a45" stop-opacity="0.25"/>
+            </radialGradient>
+          </defs>
+        </svg>
+        <ul class="sliders" id="sliders">
+          <li class="slider" data-axis="0" data-reveal><svg><use href="#i-nose"/></svg>Aroma<span class="track"><span class="fill"></span><span class="knob"></span></span><b>4</b></li>
+          <li class="slider" data-axis="1" data-reveal data-delay="1"><svg><use href="#i-drop"/></svg>Acidez<span class="track"><span class="fill"></span><span class="knob"></span></span><b>3</b></li>
+          <li class="slider" data-axis="2" data-reveal data-delay="2"><svg><use href="#i-body"/></svg>Cuerpo<span class="track"><span class="fill"></span><span class="knob"></span></span><b>4</b></li>
+          <li class="slider" data-axis="3" data-reveal data-delay="3"><svg><use href="#i-sweet"/></svg>Dulzor<span class="track"><span class="fill"></span><span class="knob"></span></span><b>4</b></li>
+          <li class="slider" data-axis="4" data-reveal data-delay="4"><svg><use href="#i-cup"/></svg>Final<span class="track"><span class="fill"></span><span class="knob"></span></span><b>4</b></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 07 PREPARA TU TAZA -->
+    <section class="section brew" id="ritual" data-title="Ritual">
+      <div class="section__content brew__grid">
+        <div>
+          <span class="kicker" data-reveal>Prepara tu taza</span>
+          <h2 class="h2" data-reveal-lines>
+            <span class="line"><span>Un método,</span></span>
+            <span class="line"><span>muchos <em>matices.</em></span></span>
+          </h2>
+          <p class="lede" data-reveal data-delay="1">Cada método resalta una faceta distinta de nuestro café. Descubre tu favorito.</p>
+          <button class="btn btn--sm" data-open-ritual data-reveal data-delay="2" data-magnetic>Guía de preparación <svg class="arrow"><use href="#i-arrow"/></svg></button>
+        </div>
+        <div class="cards">
+          <a class="card" href="#" data-tilt data-reveal>
+            <img loading="lazy" alt="Preparación en V60" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_73d9d46e-005f-4e6c-b94f-0667baf1f831.png">
+            <div class="card__body"><div><h3>V60</h3><p>Cuerpo limpio y notas brillantes.</p></div><span class="go"><svg><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="card" href="#" data-tilt data-reveal data-delay="1">
+            <img loading="lazy" alt="Preparación en prensa francesa" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_a0654289-2efd-4811-8b5e-0b43a86e93cc.png">
+            <div class="card__body"><div><h3>Prensa Francesa</h3><p>Más cuerpo y dulzor.</p></div><span class="go"><svg><use href="#i-arrow"/></svg></span></div>
+          </a>
+          <a class="card" href="#" data-tilt data-reveal data-delay="2">
+            <img loading="lazy" alt="Preparación en cafetera italiana" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_efeea5ed-53e3-426c-9804-e0177b15c10c.png">
+            <div class="card__body"><div><h3>Italiana</h3><p>Intensidad y final prolongado.</p></div><span class="go"><svg><use href="#i-arrow"/></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 CONTACTO -->
+    <section class="section contact" id="contacto" data-title="Contacto">
+      <div class="section__media" data-parallax="0.2">
+        <video data-video muted loop playsinline preload="metadata"
+          poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205231_2fb4686a-9909-4b18-bad1-7063e2c9aeb3_min.webp"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205339_03132705-b052-4b39-9b93-33d7ccb883d7.mp4"></video>
+      </div>
+      <canvas class="fx-canvas" data-fx="petals"></canvas>
+      <div class="section__content contact__grid">
+        <div class="contact__copy">
+          <span class="kicker" data-reveal>Contáctanos</span>
+          <h2 class="h2" data-reveal-lines>
+            <span class="line"><span>Hablemos</span></span>
+            <span class="line"><span>de <em>café.</em></span></span>
+          </h2>
+          <p class="lede" data-reveal data-delay="1">¿Tienes preguntas, quieres hacer un pedido mayor o colaborar con nosotros? Escríbenos.</p>
+          <a class="btn btn--sm" href="mailto:hola@canepagirbau.pe" data-reveal data-delay="2" data-magnetic>Enviar un mensaje <svg class="arrow"><use href="#i-arrow"/></svg></a>
+        </div>
+        <address class="contact-card glass" data-reveal data-delay="2" style="font-style:normal">
+          <a href="https://wa.me/51997854321" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-wa"/></svg></span><span><small>WhatsApp</small>+51 997 854 321</span></a>
+          <a href="mailto:hola@canepagirbau.pe"><span class="ci"><svg><use href="#i-mail"/></svg></span><span><small>Email</small>hola@canepagirbau.pe</span></a>
+          <a href="https://instagram.com/canepagirbau" target="_blank" rel="noopener"><span class="ci"><svg><use href="#i-ig"/></svg></span><span><small>Instagram</small>@canepagirbau</span></a>
+          <div><span class="ci"><svg><use href="#i-pin"/></svg></span><span><small>Ubicación</small>Oxapampa, Pasco</span></div>
+        </address>
+      </div>
+      <p class="motto" data-reveal>Café de origen. Sabor que trasciende.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <a class="brand" href="#inicio"><svg class="brand__mark"><use href="#i-mark"/></svg><span class="brand__name">CANEPA &amp; GIRBAU<small>DESDE 1955</small></span></a>
+      <p style="margin:10px 0 0">Oxapampa, Perú</p>
+    </div>
+    <nav aria-label="Pie de página">
+      <a href="#inicio">Inicio</a><a href="#historia">Nuestra historia</a><a href="#origen">El café</a><a href="#experiencia">Experiencia</a><a href="#tienda">Tienda</a><a href="#contacto">Contacto</a>
+    </nav>
+    <div class="end">
+      <div class="social">
+        <a class="icon-btn" href="https://instagram.com/canepagirbau" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+        <a class="icon-btn" href="#" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+      </div>
+      Café de origen. Sabor que trasciende.
+    </div>
+  </footer>
+
+  <!-- Ver el ritual -->
+  <div class="modal" id="ritualModal" role="dialog" aria-modal="true" aria-label="El ritual">
+    <div class="modal__box">
+      <video muted loop playsinline preload="none"
+        poster="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205230_2ac05fc4-97fa-45cb-ab52-e36eb1bfa5a4_min.webp"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_3HOAya60ESGKoo8ZScocSUyzbLp/hf_20260930_205339_fee22655-6280-488f-a55e-2def2e4631c3.mp4"></video>
+      <button class="modal__close glass glass--dark" id="ritualClose" aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
+      <div class="modal__steps glass glass--dark">
+        <div><i>01</i><b>Moler</b><span>18 g, molienda media justo antes de preparar.</span></div>
+        <div><i>02</i><b>Verter</b><span>300 ml de agua a 92 °C, en círculos lentos.</span></div>
+        <div><i>03</i><b>Respirar</b><span>Cacao, panela y avellana antes del primer sorbo.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Galería del producto (fotos reales) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Fotos del producto">
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" alt="">
+      <img class="lightbox__img" alt="">
+      <figcaption class="lightbox__cap glass glass--dark"><span class="lightbox__count"></span><b></b><small></small></figcaption>
+    </figure>
+    <button class="lightbox__nav lightbox__nav--prev glass glass--dark" aria-label="Anterior"><svg><use href="#i-arrow"/></svg></button>
+    <button class="lightbox__nav lightbox__nav--next glass glass--dark" aria-label="Siguiente"><svg><use href="#i-arrow"/></svg></button>
+    <button class="modal__close glass glass--dark" id="lightboxClose" aria-label="Cerrar"><svg><use href="#i-close"/></svg></button>
+    <div class="lightbox__thumbs"></div>
+  </div>
+
+  <div class="toast glass" id="toast" role="status"><i></i><span></span></div>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="particles.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
