@@ -126,13 +126,13 @@
       parent.appendChild(b);
       return b;
     };
-    // mound of roasted beans on the plinth, hiding the bag bases
+    // a light scatter of roasted beans on the plinth, gathered around the bag bases
     const mound = $("#beanMound");
-    for (let i = 0; i < 78; i++) {
-      const u = rnd(0, 1), x = 12 + u * 74;                 // % across the plinth
-      const hump = Math.max(Math.exp(-((u - 0.28) ** 2) / 0.02), 0.8 * Math.exp(-((u - 0.7) ** 2) / 0.018));
-      const y = 14.6 + rnd(0, 1) * (1 + hump * 4.4);        // % from bottom (plinth top ≈ 15.5%)
-      const size = rnd(2, 3.1);
+    for (let i = 0; i < 30; i++) {
+      const u = rnd(0, 1), x = 13 + u * 72;                 // % across the plinth
+      const near = Math.max(Math.exp(-((u - 0.3) ** 2) / 0.012), 0.8 * Math.exp(-((u - 0.68) ** 2) / 0.01));
+      const y = 14.9 + rnd(0, 1) * (0.6 + near * 1.6);      // % from bottom (plinth top ≈ 15.5%)
+      const size = rnd(1.8, 2.6);
       bean(mound, { left: x + "%", bottom: y + "%", width: `calc(var(--h) * ${size / 100})`, transform: `rotate(${rnd(0, 360)}deg)`, zIndex: String(Math.round(100 - y * 3)) });
     }
     // oversized beans floating at different depths (the nearest ones are defocused)

@@ -4,7 +4,7 @@ Experiencia editorial de lujo silencioso basada en el brief (`Brief_Web_Canepa_G
 HTML/CSS/JS sin build: abre `index.html` o sírvelo con cualquier servidor estático.
 
 ```
-npx serve canepa-girbau      # o: python3 -m http.server -d canepa-girbau
+npx serve .      # o: python3 -m http.server
 ```
 
 ## Archivos
@@ -25,8 +25,8 @@ El hero es un escenario de capas con profundidad real (`perspective` + `translat
 1. Fondo: ventana a Oxapampa sin producto (Higgsfield, vídeo en loop).
 2. Resplandor cálido.
 3. Bloque de travertino en 3D (cara superior + frontal) con textura procedural (`assets/hero/travertine.webp`).
-4. Bolsa verde «Molido» detrás y bolsa negra «En grano» delante — **recortadas de tus fotos originales** (`assets/hero/bag-*.webp`), con flotación suave, sombra que respira y un barrido de luz enmascarado a la silueta.
-5. Montaña de granos reales (sprites recortados de tu foto sobre granos, `assets/hero/bean-*.webp`) tapando la base de las bolsas.
+4. Bolsa verde «Molido» detrás y bolsa negra «En grano» delante — **recortadas de tus fotos limpias sobre travertino** (`assets/photos/*-travertino.webp` → `assets/hero/bag-*.webp`), apoyadas en la piedra con sombra de contacto, un leve balanceo y un barrido de luz enmascarado a la silueta.
+5. Granos reales esparcidos en la base (sprites recortados de tu foto sobre granos, `assets/hero/bean-*.webp`).
 6. Rama de cafeto desenfocada en primer plano y granos grandes flotando a distintas profundidades.
 7. Neblina y polvo dorado (partículas) por encima.
 En móvil el escenario ocupa la mitad superior y se mueve solo (balanceo lento), sin depender del cursor.
