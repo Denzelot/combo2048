@@ -7,6 +7,13 @@ HTML/CSS/JS sin build: abre `index.html` o sírvelo con cualquier servidor está
 npx serve .      # o: python3 -m http.server
 ```
 
+## Instalación local (una sola vez)
+```bash
+bash instalar-local.sh          # clona en ~/canepa-girbau-web, descarga la media, crea tu repo y arranca la web
+```
+Después, para ver la web: `cd ~/canepa-girbau-web && npx serve .` · para traer cambios: `git pull`.
+Volver a ejecutar el script es seguro (actualiza en vez de reinstalar).
+
 ## Archivos
 | Archivo | Qué contiene |
 |---|---|
@@ -14,7 +21,9 @@ npx serve .      # o: python3 -m http.server
 | `styles.css` | Tokens de color/tipo, **sistema glass** (botones líquidos, barras, tarjetas, burbujas), secciones y responsive. |
 | `particles.js` | Motor de partículas Canvas 2D sin dependencias: humo/vapor volumétrico, polvo dorado, micro-burbujas y pétalos de flor de café. |
 | `app.js` | Scroll suave (Lenis), parallax, indicador lateral, cursor dorado, burbujas flotantes con física, audio «Respira el aroma», configurador de producto, radar animado, modal. |
-| `download-assets.sh` | Descarga los assets de Higgsfield a `./assets` y reescribe las URLs (recomendado antes de publicar). |
+| `download-assets.sh` | Descarga las imágenes y vídeos de Higgsfield a `./assets/media` y reescribe las URLs (la web deja de depender del CDN). |
+| `instalar-local.sh` | Instalación local en un paso: clona, descarga la media, crea el repo en GitHub y arranca la web. |
+| `netlify.toml` | Configuración para publicar como sitio estático en Netlify. |
 
 ## Assets generados en Higgsfield (proyecto «Canepa & Girbau Web»)
 - **13 imágenes** (GPT Image 2.5, 2K): hero, historia, panorámica de Oxapampa, macro de granos, producto, V60, prensa francesa, moka, contacto y 4 notas con fondo transparente (cacao, panela, avellana, frutos secos).
