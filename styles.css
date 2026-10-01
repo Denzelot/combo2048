@@ -510,13 +510,13 @@ body.cursor-hover .cursor-dot {
   filter: blur(4px); transform: translateZ(1px);
   animation: shadowBreath 7s var(--ease-soft) infinite;
 }
-.plinth__shadow--grano { left: 8%; width: 46%; }
-.plinth__shadow--molido { left: 46%; width: 42%; opacity: 0.6; margin-bottom: 8px; animation-delay: -3s; }
+.plinth__shadow--grano { left: 8%; width: 46%; margin-bottom: -6px; }
+.plinth__shadow--molido { left: 46%; width: 42%; opacity: 0.6; margin-bottom: calc(var(--h) * 0.02 - 8px); animation-delay: -3s; }
 @keyframes shadowBreath { 50% { transform: translateZ(1px) scaleX(0.92); opacity: 0.45; } }
 
 /* bags */
 .bag {
-  position: absolute; bottom: calc(7% + var(--h) * 0.093);
+  position: absolute; bottom: calc(7% + var(--h) * 0.09);
   transform-origin: 50% 100%;
   animation: bagFloat 7s var(--ease-soft) infinite;
 }
@@ -524,12 +524,12 @@ body.cursor-hover .cursor-dot {
   display: block; height: 100%; width: auto;
   filter: drop-shadow(0 30px 30px rgba(40, 24, 12, 0.35)) drop-shadow(0 6px 8px rgba(40, 24, 12, 0.25));
 }
-.bag--grano { left: 16%; height: calc(var(--h) * 0.6); --rot: -3deg; }
-.bag--molido { left: 50%; height: calc(var(--h) * 0.5); --rot: 5deg; bottom: calc(7% + var(--h) * 0.118); animation-delay: -3.5s; }
+.bag--grano { left: 16%; height: calc(var(--h) * 0.6); --rot: -1.5deg; }
+.bag--molido { left: 50%; height: calc(var(--h) * 0.5); --rot: 3deg; bottom: calc(7% + var(--h) * 0.105); animation-delay: -3.5s; }
 .bag--molido img { filter: drop-shadow(0 24px 26px rgba(40, 24, 12, 0.3)) saturate(0.92) brightness(0.97); }
 @keyframes bagFloat {
   0%, 100% { transform: translateY(0) rotate(var(--rot)); }
-  50% { transform: translateY(-10px) rotate(calc(var(--rot) + 0.8deg)); }
+  50% { transform: translateY(-4px) rotate(calc(var(--rot) + 0.6deg)); }
 }
 /* moving light sweep over the kraft, masked to the bag silhouette */
 .bag__sheen {
