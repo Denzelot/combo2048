@@ -14,8 +14,8 @@
 set -euo pipefail
 
 DEST="${1:-$HOME/canepa-girbau-web}"
-SRC_REPO="https://github.com/denzelot/combo2048.git"
-SRC_BRANCH="canepa-girbau-standalone"
+SRC_REPO="https://github.com/denzelot/canepa-girbau-web.git"
+SRC_BRANCH="main"
 NEW_REPO="canepa-girbau-web"
 PORT="${PORT:-3000}"
 
@@ -30,9 +30,7 @@ if [ -d "$DEST/.git" ]; then
   git -C "$DEST" pull --ff-only || echo "  (no se pudo actualizar automáticamente; revisa 'git status')"
 else
   say "1/4 Clonando la web en $DEST"
-  git clone --branch "$SRC_BRANCH" --single-branch "$SRC_REPO" "$DEST"
-  git -C "$DEST" branch -m "$SRC_BRANCH" main
-  git -C "$DEST" remote rename origin combo2048
+  git clone --branch "$SRC_BRANCH" "$SRC_REPO" "$DEST"
 fi
 cd "$DEST"
 git config user.name  >/dev/null 2>&1 || git config user.name  "Canepa & Girbau"

@@ -15,6 +15,11 @@ En **Windows (PowerShell)**: `powershell -ExecutionPolicy Bypass -File .\instala
 Después, para ver la web: `cd ~/canepa-girbau-web && npx serve .` · para traer cambios: `git pull`.
 Volver a ejecutar el script es seguro (actualiza en vez de reinstalar).
 
+## Publicación en Vercel
+Proyecto estático: sin build. `vercel.json` define caché larga para `assets/` y `.vercelignore` deja fuera los scripts y el README.
+En Vercel → **Add New → Project → Import** este repositorio → *Framework Preset*: **Other**, *Build Command*: vacío, *Output Directory*: `.` → **Deploy**.
+Dominio: **Settings → Domains → Add** y elige el dominio comprado en Vercel.
+
 ## Archivos
 | Archivo | Qué contiene |
 |---|---|

@@ -20,8 +20,8 @@ $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'   # Invoke-WebRequest es mucho más rápido sin barra
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-$SrcRepo   = 'https://github.com/denzelot/combo2048.git'
-$SrcBranch = 'canepa-girbau-standalone'
+$SrcRepo   = 'https://github.com/denzelot/canepa-girbau-web.git'
+$SrcBranch = 'main'
 $NewRepo   = 'canepa-girbau-web'
 $Hosts     = 'd8j0ntlcm91z4\.cloudfront\.net|d2ol7oe51mr4n9\.cloudfront\.net'
 
