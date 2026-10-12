@@ -54,9 +54,7 @@ if (Test-Path (Join-Path $Dest '.git')) {
   if ($LASTEXITCODE -ne 0) { Write-Host "  (no se pudo actualizar automáticamente; revisa 'git status')" }
 } else {
   Say "1/4 Clonando la web en $Dest"
-  Git-Run clone --branch $SrcBranch --single-branch $SrcRepo $Dest
-  Git-Run -C $Dest branch -m $SrcBranch main
-  Git-Run -C $Dest remote rename origin combo2048
+  Git-Run clone --branch $SrcBranch $SrcRepo $Dest
 }
 Set-Location $Dest
 & git config user.name  *> $null; if ($LASTEXITCODE -ne 0) { git config user.name  'Canepa & Girbau' }
